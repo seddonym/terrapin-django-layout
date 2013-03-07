@@ -8,3 +8,4 @@ django==1.5
 south==0.7.6
 django-grappelli
 mysql-python
+git+ssh://git@pepperpotdesign.co.uk/home/git/repos/python-pepperpot.git@1.3.4

@@ -8,11 +8,12 @@ MANAGE = 'M'
 WSGI = 'W'
 
 def setup_environment(mode):
+    settings_file = ENVIRONMENTS[socket.gethostname()][os.environ['PWD']]
     os.environ.setdefault("DJANGO_SETTINGS_MODULE",
                       "{{ project_name }}.settings.%s" %
-                      environments[socket.gethostname()])
+                      settings_file)
     
-    if type == MANAGE:
+    if mode == MANAGE:
         from django.core.management import execute_from_command_line
         execute_from_command_line(sys.argv)
     else:

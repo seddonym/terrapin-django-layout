@@ -16,7 +16,7 @@
 # }
  
 ENVIRONMENTS ={
-    'lanky': {'/': 'local'},
+    'lanky': {'/home/david/www/{{ project_name }}': 'local'},
     'ketchup': {'/': 'dev'},
 }
 

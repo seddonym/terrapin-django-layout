@@ -25,7 +25,6 @@ LANGUAGES = (
 SECRET_KEY = '{{ secret_key }}'
 
 INSTALLED_APPS = (
-    'pepperpot.django',
     'south',
     'django.contrib.auth',
     'django.contrib.contenttypes',

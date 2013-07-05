@@ -8,7 +8,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
-    (r'^grappelli/', include('grappelli.urls')),
 )
 
 if settings.DEBUG and settings.MEDIA_ROOT:

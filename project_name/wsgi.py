@@ -1,2 +1,2 @@
-from {{ project_name }}.libs.environment import setup_environment, WSGI
-setup_environment(WSGI)
+from {{ project_name }}.libs.environment import wsgi_environment
+application = wsgi_environment()

@@ -6,7 +6,7 @@ from django.conf.global_settings import *   # pylint: disable=W0614,W0401
 # Generic Django project settings
 #==============================================================================
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 SITE_ID = 1
@@ -27,7 +27,6 @@ SECRET_KEY = '{{ secret_key }}'
 INSTALLED_APPS = (
     'pepperpot.django',
     'south',
-    'grappelli',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -86,6 +85,11 @@ TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, 'templates'),
 )
 
+TEMPLATE_LOADERS += (
+    #Allows extending and overriding templates at the same time
+    'apptemplates.Loader',
+)
+
 TEMPLATE_CONTEXT_PROCESSORS += (
     'django.core.context_processors.request',
 )
@@ -104,11 +108,5 @@ MIDDLEWARE_CLASSES += (
 AUTHENTICATION_BACKENDS += (
 )
 
-#==============================================================================
-# Miscellaneous project settings
-#==============================================================================
-
-#==============================================================================
-# Third party app settings
-#==============================================================================
-GRAPPELLI_ADMIN_TITLE = '{{ project_name|capfirst }}'
+# During tests, disable migrations and use syncdb instead
+SOUTH_TESTS_MIGRATE = False

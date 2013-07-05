@@ -10,12 +10,9 @@ STATIC_ROOT = os.path.join(VAR_ROOT, 'static')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': '{{ project_name }}',
         'USER': '{{ project_name }}',
         'PASSWORD': '',
-        'OPTIONS': {
-            "init_command": "SET storage_engine=INNODB",
-        }  
     }
 }

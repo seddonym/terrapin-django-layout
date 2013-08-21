@@ -21,7 +21,7 @@ def wsgi_environment():
     application = get_wsgi_application()
 
     if settings_file in MONITOR_ENVIRONMENTS:
-        from backstage.libs import monitor
+        from {{ project_name }}.libs import monitor
         monitor.start(interval=1.0)
 
     return application

@@ -46,18 +46,6 @@ import {{ project_name }} as project_module
 
 PROJECT_DIR = os.path.dirname(os.path.realpath(project_module.__file__))
 
-#NB The python binary that runs in apache is not the venv one
-#Get path to the virtualenv site-packages
-#It's a bit difficult to determine this, as the cli has different
-#python executables and paths to the apache instance.
-regex = re.compile('%s.*lib/python2.7/site-packages$' % project_module.__name__)
-VIRTUALENV_SITEPACKAGES = [i for i in sys.path if regex.search(i)][0]
-
-VAR_ROOT = os.path.join(PROJECT_DIR, 'var')
-
-if not os.path.exists(VAR_ROOT):
-    os.mkdir(VAR_ROOT)
-
 #==============================================================================
 # Project URLS and media settings
 #==============================================================================
@@ -70,9 +58,6 @@ LOGIN_REDIRECT_URL = '/'
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/uploads/'
-
-STATIC_ROOT = os.path.join(VAR_ROOT, 'static')
-MEDIA_ROOT = os.path.join(VAR_ROOT, 'uploads')
 
 STATICFILES_DIRS = (
 )

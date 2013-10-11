@@ -5,6 +5,7 @@ from {{ project_name }}.settings.base import *   # pylint: disable=W0614,W0401
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+THUMBNAIL_DEBUG = DEBUG
 
 ADMINS = (
     ('David Seddon', 'david@pepperpotdesign.co.uk'),
@@ -12,6 +13,10 @@ ADMINS = (
 MANAGERS = ADMINS
 
 BASE_URL = 'http://{{ project_name }}.localhost'
+
+VAR_ROOT = '/home/david/var/www/{{ project_name }}'
+STATIC_ROOT = os.path.join(VAR_ROOT, 'static')
+MEDIA_ROOT = os.path.join(VAR_ROOT, 'uploads')
 
 ALLOWED_HOSTS = ['{{ project_name }}.localhost']
 
@@ -24,9 +29,6 @@ DATABASES = {
 
     }
 }
-
-#This doesn't work for the cli, so we set it manually here
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'var/static')
 
 #==============================================================================
 #Debug toolbar

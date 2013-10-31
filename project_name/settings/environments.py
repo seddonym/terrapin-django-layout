@@ -14,12 +14,12 @@
 #         '/path/to/other/directory': 'SETTINGS_FILE_NAME'
 #     },
 # }
- 
-ENVIRONMENTS ={
-    'lanky': {'/home/david/www/{{ project_name }}': 'local',
-              '/': 'local'},
-    'ketchup': {'/': 'dev'},
+
+ENVIRONMENTS = {
+    'lanky': {'/home/david/www/{{ project_name }}': 'local'},
+    'ketchup': {'/home/davidseddon/webapps/{{ project_name }}_live/{{ project_name }}': 'live',
+                '/home/davidseddon/webapps/{{ project_name }}_dev/{{ project_name }}': 'dev'},
 }
 
-#List any environments which we should monitor for code changes
+# List any environments which we should monitor for code changes
 MONITOR_ENVIRONMENTS = ('local',)

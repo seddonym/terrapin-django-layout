@@ -4,7 +4,12 @@ import socket
 from {{ project_name }}.settings.environments import ENVIRONMENTS, \
                                                     MONITOR_ENVIRONMENTS
 
-settings_file = ENVIRONMENTS[socket.gethostname()][os.environ['PWD']]
+
+# Get the path to the project based on the location of
+# this file
+project_path = '/'.join(__file__.split('/')[:-4])
+settings_file = ENVIRONMENTS[socket.gethostname()][project_path]
+
 
 def _setup_environment_vars():
     os.environ.setdefault("DJANGO_SETTINGS_MODULE",

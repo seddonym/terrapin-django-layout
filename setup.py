@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='{{ project_name }}',
-    version='1.0.2',
+    version='1.0.3',
     description="",
     author="David Seddon",
     author_email='david@pepperpotdesign.co.uk',

@@ -19,11 +19,6 @@ def _setup_environment_vars():
 
 def wsgi_environment():
     _setup_environment_vars()
-    # This application object is used by any WSGI server configured to
-    # use this file. This includes Django's development server,
-    # if the WSGI_APPLICATION setting points here.
-    from django.core.wsgi import get_wsgi_application
-    application = get_wsgi_application()
 
     if settings.get('virtualenv'):
         # This makes sure the virtualenv is activated
@@ -35,6 +30,13 @@ def wsgi_environment():
     if settings.get('monitor'):
         from {{ project_name }}.libs import monitor
         monitor.start(interval=1.0)
+
+    # This application object is used by any WSGI server configured to
+    # use this file. This includes Django's development server,
+    # if the WSGI_APPLICATION setting points here.
+    from django.core.wsgi import get_wsgi_application
+    application = get_wsgi_application()
+
 
     return application
 

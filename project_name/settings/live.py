@@ -1,12 +1,12 @@
-"""Settings for Development Server"""
+"""Settings for Live Server"""
 from {{ project_name }}.settings.base import *  # pylint: disable=W0614,W0401
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 WEBAPPS_ROOT = '/home/davidseddon/webapps'
-MEDIA_ROOT = os.path.join(WEBAPPS_ROOT, '{{ project_name }}_dev_uploads')
-STATIC_ROOT = os.path.join(WEBAPPS_ROOT, '{{ project_name }}_dev_static')
+MEDIA_ROOT = os.path.join(WEBAPPS_ROOT, '{{ project_name }}_live_uploads')
+STATIC_ROOT = os.path.join(WEBAPPS_ROOT, '{{ project_name }}_live_static')
 
 DOMAIN = ''  # Add domain here
 ALLOWED_HOSTS = [DOMAIN]
@@ -16,16 +16,16 @@ BASE_URL = 'http://' + DOMAIN
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '{{ project_name }}_dev',
-        'USER': '{{ project_name }}_dev',
-        'PASSWORD': '',
+        'NAME': '{{ project_name }}_live',
+        'USER': '{{ project_name }}_live',
+        'PASSWORD': 'TIlc6PA2VAE9',
     }
 }
 
 EMAIL_HOST = 'smtp.webfaction.com'
-EMAIL_HOST_USER = '{{ project_name }}_dev'
-EMAIL_HOST_PASSWORD = ''
-SERVER_EMAIL = DEFAULT_FROM_EMAIL = 'noreply@dev.{{ project_name }}.pepperpotdesign.co.uk'
+EMAIL_HOST_USER = '{{ project_name }}_live'
+EMAIL_HOST_PASSWORD = 'JSTqzzJkY74L'
+SERVER_EMAIL = DEFAULT_FROM_EMAIL = 'noreply@{{ project_name }}.pepperpotdesign.co.uk'
 
 LOGGING = {
     'version': 1,
@@ -52,13 +52,13 @@ LOGGING = {
         'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler',
-            'filters': ['require_debug_false'],
             'include_html': True,
+            'filters': ['require_debug_false'],
         },
         'error': {
             'level':'ERROR',
             'class':'logging.handlers.RotatingFileHandler',
-            'filename': '/home/davidseddon/logs/user/{{ project_name }}_dev/django-error.log',
+            'filename': '/home/davidseddon/logs/user/{{ project_name }}_live/django-error.log',
             'maxBytes': 50000,
             'backupCount': 2,
             'formatter': 'standard',
@@ -77,3 +77,4 @@ LOGGING = {
         },
     }
 }
+

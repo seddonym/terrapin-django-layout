@@ -18,13 +18,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': '{{ project_name }}_live',
         'USER': '{{ project_name }}_live',
-        'PASSWORD': 'TIlc6PA2VAE9',
+        'PASSWORD': '',
     }
 }
 
 EMAIL_HOST = 'smtp.webfaction.com'
 EMAIL_HOST_USER = '{{ project_name }}_live'
-EMAIL_HOST_PASSWORD = 'JSTqzzJkY74L'
+EMAIL_HOST_PASSWORD = ''
 SERVER_EMAIL = DEFAULT_FROM_EMAIL = 'noreply@{{ project_name }}.pepperpotdesign.co.uk'
 
 LOGGING = {
